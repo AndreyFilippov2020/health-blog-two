@@ -36,7 +36,7 @@ class PostResource extends Resource
                                     ->required()
                                     ->maxLength(2048)
                                     ->reactive()
-                                    ->debounce(500)
+                                    ->debounce(750)
                                     ->afterStateUpdated(function (Set $set, $state) {
                                         $set('slug', Str::slug($state));
                                     }),
@@ -59,6 +59,8 @@ class PostResource extends Resource
                         Forms\Components\Select::make('categories')
                             ->multiple()
                             ->relationship('categories', 'title')
+                            ->searchable()
+                            ->preload()
                             ->required(),
                     ])->columnSpan(4)
 
@@ -96,7 +98,7 @@ class PostResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+//                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
