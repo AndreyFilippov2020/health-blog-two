@@ -3,7 +3,7 @@
 
 ?>
 
-<x-app-layout>
+<x-app-layout meta-title="My Blog" meta-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit">
 <section class="w-full md:w-2/3 flex flex-col items-center px-3">
 
 @foreach($posts as $post)
@@ -17,4 +17,5 @@
     </div>
 
 </section>
+<x-sidebar></x-sidebar>
 </x-app-layout>

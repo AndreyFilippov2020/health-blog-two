@@ -7,24 +7,15 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\Component;
-use Illuminate\Support\Collection;
 
-class AppLayout extends Component
+class Sidebar extends Component
 {
     /**
      * Create a new component instance.
      */
-
-    public Collection $categories;
-    public function __construct(public ?string $metaTitle = null, public ?string $metaDescription = null)
+    public function __construct()
     {
-        $this->categories = Category::query()
-            ->join('category_post', 'categories.id', '=', 'category_post.category_id')
-            ->select('categories.title', 'categories.slug', DB::raw('count(*) as total'))
-            ->groupBy('categories.id')
-            ->orderByDesc('total')
-            ->limit(5)
-            ->get();
+        //
     }
 
     /**
@@ -32,15 +23,13 @@ class AppLayout extends Component
      */
     public function render(): View|Closure|string
     {
-
         $categories = Category::query()
             ->join('category_post', 'categories.id', '=', 'category_post.category_id')
             ->select('categories.title', 'categories.slug', DB::raw('count(*) as total'))
             ->groupBy('categories.id')
             ->orderByDesc('total')
-            ->limit(5)
             ->get();
 
-        return view('layouts.app', compact('categories'));
+        return view('components.sidebar', compact('categories'));
     }
 }

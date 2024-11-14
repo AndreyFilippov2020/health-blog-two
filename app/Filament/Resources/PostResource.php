@@ -47,6 +47,10 @@ class PostResource extends Resource
                         Forms\Components\RichEditor::make('body')
                             ->required()
                             ->columnSpanFull(),
+                        Forms\Components\TextInput::make('meta_title'),
+
+                        Forms\Components\TextInput::make('meta_description'),
+
                         Forms\Components\Toggle::make('active')
                             ->required(),
                         Forms\Components\DateTimePicker::make('published_at')
@@ -119,7 +123,6 @@ class PostResource extends Resource
         return [
             'index' => Pages\ListPosts::route('/'),
             'create' => Pages\CreatePost::route('/create'),
-            'view' => Pages\ViewPost::route('/{record}'),
             'edit' => Pages\EditPost::route('/{record}/edit'),
         ];
     }
