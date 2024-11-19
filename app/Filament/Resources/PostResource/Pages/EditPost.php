@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\PostResource\Pages;
 
 use App\Filament\Resources\PostResource;
+use App\Filament\Widgets\PostOverview;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
@@ -20,5 +21,12 @@ class EditPost extends EditRecord
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
+    }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            PostOverview::class,
+        ];
     }
 }
