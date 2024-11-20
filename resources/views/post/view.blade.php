@@ -1,5 +1,5 @@
 <x-app-layout :meta-title="$post->meta_title ?: $post->title" :meta-description="$post->meta_description">
-    <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+    <section class="w-full md:w-2/3 flex flex-col px-3">
 
         <article class="flex flex-col shadow my-4">
             <!-- Article Image -->
@@ -21,6 +21,8 @@
                 <livewire:upvote-downvote :post="$post"/>
             </div>
         </article>
+
+
 
         <div class="w-full flex pt-6">
             <div class="w-1/2">
@@ -45,6 +47,8 @@
                 @endif
             </div>
         </div>
+
+        <livewire:comments :post="$post"/>
     </section>
     <x-sidebar></x-sidebar>
 </x-app-layout>
