@@ -38,15 +38,18 @@ class CommentCreate extends Component
         }
 
         if ($this->commentModel) {
-            if ($this->commentModel->user_id != $user->id) {
+            if ($this->commentModel->user_id != $user->id || $user->hasRole('admin2')) {
+                $this->commentModel->comment = $this->comment;
+                $this->commentModel->save();
+
+                $this->comment = '';
+                $this->dispatch('commentUpdated');
+
+            } else {
                 return response('You are not allowed to perform this action', 403);
             }
 
-            $this->commentModel->comment = $this->comment;
-            $this->commentModel->save();
 
-            $this->comment = '';
-            $this->dispatch('commentUpdated');
 
         } else {
             $comment = Comment::create([

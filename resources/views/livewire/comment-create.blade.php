@@ -17,7 +17,7 @@
                      this.$refs.input.value = '';
                 })
             }
-    }" class="mb-4" >
+    }" class="mb-4 mt-10" >
 
         <div class="mb-2">
             <textarea x-ref="input" wire:model.live="comment" @click="focused = true"
@@ -27,10 +27,10 @@
         </div>
         <div :class="isEdit || focused ? '' : 'hidden'">
             <button wire:click="createComment" type="submit"
-                    class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    class="rounded-md bg-indigo-600 px-3.5 py-2.5 mr-4 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                 Submit
             </button>
-            <button @click="$wire.dispatch('cancelEditing')" type="button" class="">
+            <button @click="$wire.dispatch('cancelEditing')" type="button" class="rounded-md bg-gray-100 px-3.5 py-2.5 ext-center text-sm shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">
                 Cancel
             </button>
         </div>

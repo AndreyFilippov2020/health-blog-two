@@ -22,8 +22,11 @@
             </div>
         @endif
         <div>
-            <a wire:click.prevent="startReply" href="#" class="text-sm text-indigo-600 mr-3">Reply</a>
-            @if (\Illuminate\Support\Facades\Auth::id() == $comment->user_id)
+
+            @if (auth()->user()?->hasRole('admin2') && is_null($comment->parent_id))
+                <a wire:click.prevent="startReply" href="#" class="text-sm text-indigo-600 mr-3">Reply</a>
+            @endif
+            @if (\Illuminate\Support\Facades\Auth::id() == $comment->user_id || auth()->user()?->hasRole('admin2'))
                 <a wire:click.prevent="startCommentEdit" href="#" class="text-sm text-blue-600 mr-3">Edit</a>
                 <a wire:click.prevent="deleteComment" href="#" class="text-sm text-red-600">Delete</a>
             @endif

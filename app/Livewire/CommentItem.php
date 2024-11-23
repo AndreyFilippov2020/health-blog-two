@@ -37,14 +37,17 @@ class CommentItem extends Component
             return $this->redirect('/login');
         }
 
-        if ($this->comment->user_id != $user->id) {
+        if ($this->comment->user_id === $user->id || $user->hasRole('admin2')) {
+            $id = $this->comment->id;
+
+            $this->comment->delete();
+            $this->dispatch('commentDeleted', $id);
+
+        } else {
             return response('You are not allowed to perform this action', 403);
         }
 
-        $id = $this->comment->id;
 
-        $this->comment->delete();
-        $this->dispatch('commentDeleted', $id);
     }
 
     public function startCommentEdit()
