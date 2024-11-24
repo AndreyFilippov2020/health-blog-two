@@ -55,4 +55,14 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
     {
         return $this->hasRole('admin2');
     }
+
+    public function subscribe(): void
+    {
+        $this->update(['is_subscribed' => true]);
+    }
+
+    public function unsubscribe(): void
+    {
+        $this->update(['is_subscribed' => false]);
+    }
 }
