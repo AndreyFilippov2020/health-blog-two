@@ -27,7 +27,7 @@ class PostController extends Controller
 
         // Latest post
         $latestPost = Post::where('active', '=', 1)
-            ->whereDate('published_at', '<', Carbon::now())
+            ->whereDate('published_at', '<=', Carbon::now())
             ->orderBy('published_at', 'desc')
             ->limit(1)
             ->first();
@@ -161,7 +161,7 @@ class PostController extends Controller
      */
     public function show(Post $post, Request $request)
     {
-        if (!$post->active || $post->published_at > Carbon::now()) {
+        if (!$post->active || (!$post->published_at && $post->published_at > Carbon::now())) {
             throw new NotFoundHttpException();
         }
 
