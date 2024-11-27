@@ -12,7 +12,17 @@ use Illuminate\Support\Str;
 class Post extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'slug', 'thumbnail', 'body', 'active', 'published_at', 'user_id', 'meta_title', 'meta_description', 'notified'];
+    protected $fillable = [
+        'title',
+        'slug',
+        'thumbnail',
+        'body',
+        'active',
+        'published_at',
+        'user_id',
+        'meta_title',
+        'meta_description',
+        'notified'];
 
     protected $casts = [
         'published_at' => 'datetime',

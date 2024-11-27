@@ -31,14 +31,11 @@ class PublishPostsCommand extends Command
     {
         $now = Carbon::now();
 
-        // Найти активные посты, которые должны быть опубликованы
         $posts = Post::where('active', '=', true)
-            ->where('published_at', '!=', NULL)
-//            ->where('published_at', '<=', $now)
-            ->where('notified', '=', false)
+            ->whereNotNull('published_at')
+            ->where('published_at', '<=', $now)
+            ->where('notified', '=', 0)
             ->get();
-
-
 
         foreach ($posts as $post) {
             // Получить всех подписчиков

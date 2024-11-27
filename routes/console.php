@@ -8,4 +8,4 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote')->hourly();
 
 
-\Illuminate\Support\Facades\Schedule::command('posts:publish')->everyMinute();
+//\Illuminate\Support\Facades\Schedule::command('posts:publish')->everyMinute();
