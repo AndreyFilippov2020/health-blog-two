@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Events\NewCommentAdded;
 use App\Models\Comment;
 use App\Models\Post;
 use Livewire\Component;
@@ -44,7 +45,6 @@ class CommentCreate extends Component
 
                 $this->comment = '';
                 $this->dispatch('commentUpdated');
-
             } else {
                 return response('You are not allowed to perform this action', 403);
             }
@@ -61,6 +61,7 @@ class CommentCreate extends Component
 
             $this->comment = '';
             $this->dispatch('commentCreated', $comment->id);
+            event(new NewCommentAdded($comment));
 
         }
     }

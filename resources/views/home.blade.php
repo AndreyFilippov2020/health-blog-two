@@ -13,6 +13,7 @@
                 </h2>
 
                 @if ($latestPost)
+
                     <x-post-item :post="$latestPost"/>
                 @endif
             </div>
@@ -25,6 +26,7 @@
                 @foreach($popularPosts as $post)
                     <div class="grid grid-cols-4 gap-2 mb-4">
                         <a href="{{route('view', $post)}}" class="pt-1">
+{{--                            <pre><?php dd($post) ?></pre>--}}
                             <img src="{{$post->getThumbnail()}}" alt="{{$post->title}}"/>
                         </a>
                         <div class="col-span-3">

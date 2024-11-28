@@ -77,8 +77,8 @@ class PostResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('thumbnail')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('title')->searchable(['title', 'body'])
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('title')->searchable(['title', 'body']),
+
                 Tables\Columns\IconColumn::make('active')->sortable()
                     ->boolean(),
                 Tables\Columns\TextColumn::make('published_at')
@@ -95,7 +95,7 @@ class PostResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-            ])
+            ])->defaultSort('published_at', 'desc')
             ->filters([
                 //
             ])
@@ -110,6 +110,7 @@ class PostResource extends Resource
                 ]),
             ]);
     }
+
 
     public static function getRelations(): array
     {
