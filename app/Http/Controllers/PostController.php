@@ -161,7 +161,7 @@ class PostController extends Controller
      */
     public function show(Post $post, Request $request)
     {
-        if (!$post->active || (!$post->published_at && $post->published_at > Carbon::now())) {
+        if (!$post->active || (!$post->published_at && $post->published_at->greaterThan(Carbon::now()))) {
             throw new NotFoundHttpException();
         }
 
