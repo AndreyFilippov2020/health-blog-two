@@ -3,24 +3,23 @@
 ?>
 
 <x-app-layout meta-title="My Blog" meta-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit">
-    <div class="container max-w-4xl mx-auto py-6">
+    <div class="container  mx-auto py-6 px-4 md:px-0">
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <!-- Latest Post -->
             <div class="col-span-2">
-                <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
+                <h2 class="text-lg sm:text-xl font-bold text-theme-color uppercase pb-1 border-b-2 border-theme-color mb-3">
                     Latest Post
                 </h2>
 
                 @if ($latestPost)
-
-                    <x-post-item :post="$latestPost"/>
+                    <x-post-item-flex :post="$latestPost"/>
                 @endif
             </div>
 
             <!-- Popular 3 post -->
             <div>
-                <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
+                <h2 class="text-lg sm:text-xl font-bold text-theme-color uppercase pb-1 border-b-2 border-theme-color mb-3">
                     Popular Posts
                 </h2>
                 @foreach($popularPosts as $post)
@@ -35,7 +34,7 @@
                             </a>
                             <div class="flex gap-4 mb-2">
                                 @foreach($post->categories as $category)
-                                    <a href="#" class="bg-blue-500 text-white p-1 rounded text-xs font-bold uppercase">
+                                    <a href="{{route('by-category', $category)}}" class="bg-blue-500/80 text-white p-1 rounded text-xs font-bold uppercase">
                                         {{$category->title}}
                                     </a>
                                 @endforeach
@@ -53,23 +52,26 @@
         </div>
 
         <!-- Recommended posts -->
-        <div class="mb-8">
-            <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
-                Recommended Posts
-            </h2>
+        @if($recommendedPosts && count($recommendedPosts) > 0 )
+            <div class="mb-8">
+                <h2 class="text-lg sm:text-xl font-bold text-theme-color uppercase pb-1 border-b-2 border-theme-color mb-3">
+                    Recommended Posts
+                </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                @foreach($recommendedPosts as $post)
-                    <x-post-item :post="$post" :show-author="false"/>
-                @endforeach
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    @foreach($recommendedPosts as $post)
+                        <x-post-item :post="$post" :show-author="false"/>
+                    @endforeach
+                </div>
             </div>
-        </div>
+        @endif
+
 
         <!-- Latest Categories -->
 
         @foreach($categories as $category)
             <div>
-                <h2 class="text-lg sm:text-xl font-bold text-blue-500 uppercase pb-1 border-b-2 border-blue-500 mb-3">
+                <h2 class="text-lg sm:text-xl font-bold text-theme-color uppercase pb-1 border-b-2 border-theme-color mb-3">
                     Category "{{$category->title}}"
                     <a href="{{route('by-category', $category)}}">
                         <i class="fas fa-arrow-right"></i>

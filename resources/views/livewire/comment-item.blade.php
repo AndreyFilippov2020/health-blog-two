@@ -9,9 +9,9 @@
     </div>
     <div class="flex-1">
         <div>
-                <a href="#" class="font-semibold text-indigo-600">
+                <div class="font-semibold text-indigo-600">
                     {{$comment->user->name}}
-                </a>
+                </div>
             - <span class="text-gray-500">{{ $comment->created_at->diffForHumans() }}</span>
         </div>
         @if($editing)
