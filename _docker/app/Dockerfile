@@ -32,7 +32,7 @@ COPY ./_docker/app/php.ini /usr/local/etc/php/conf.d/php.ini
 
 # Копирование конфигурации Supervisor
 COPY ./_docker/supervisor/supervisord.conf /etc/supervisor/supervisord.conf
-COPY ./_docker/supervisor/conf.d/ /etc/supervisor/conf.d/
+
 
 # Установка Composer
 ENV COMPOSER_ALLOW_SUPERUSER=1
