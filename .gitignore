@@ -22,3 +22,5 @@ yarn-error.log
 /.zed
 /package-lock.json
 /composer.lock
+/html
+/tmp

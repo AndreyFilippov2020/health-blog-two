@@ -3,8 +3,12 @@ import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
         server: {
+            host: '0.0.0.0', // Позволяет подключаться извне контейнера
+            port: 5173, // HTTP-порт
+            strictPort: true,
             hmr: {
-                host: 'localhost'
+                host: 'localhost',
+                port: 5174,
             }
         },
     plugins: [

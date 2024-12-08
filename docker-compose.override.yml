@@ -1,5 +1,0 @@
-
-services:
-  laravel.test:
-    environment:
-      TZ: 'Europe/Moscow'
