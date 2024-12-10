@@ -56,6 +56,7 @@ class PostController extends Controller
                 'posts.updated_at',
                 'posts.meta_title',
                 'posts.meta_description',
+                'posts.notified'
             ])
             ->limit(5)
             ->get();
@@ -100,6 +101,7 @@ class PostController extends Controller
                     'posts.updated_at',
                     'posts.meta_title',
                     'posts.meta_description',
+                    'posts.notified'
                 ])
                 ->limit(3)
                 ->get();
