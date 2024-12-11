@@ -7,7 +7,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -24,10 +23,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('unsubscribe');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::get('/', [PostController::class, 'home'])->name('home');
 Route::get('/search', [PostController::class, 'search'])->name('search');
 Route::get('/about-us', [SiteController::class, 'about'])->name('about-us');
 Route::get('/categories/{category:slug}', [PostController::class, 'byCategory'])->name('by-category');
 Route::get('/post/{post:slug}', [PostController::class, 'show'])->name('view');
+Route::get('/policy', function () {
+    return view('/policy/policy');
+})->name('policy');

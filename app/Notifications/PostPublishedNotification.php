@@ -36,13 +36,13 @@ class PostPublishedNotification extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('New Post Published: ' . $this->post->title)
-            ->greeting('Hello!')
-            ->line('A new post has been published:')
+            ->subject('Опубликована новая статья: ' . $this->post->title)
+            ->greeting('Зравствуйте!')
+            ->line('Опубликована новая статья:')
             ->line($this->post->title)
-            ->action('Read Post', url('/post/' . $this->post->slug))
-            ->line('If you no longer wish to receive these notifications, you can unsubscribe below.')
-            ->action('Unsubscribe', url('/unsubscribe/' . $notifiable->id));
+            ->action('Прочесть статью', url('/post/' . $this->post->slug))
+            ->line('Если вы больше не хотите получать эти уведомления, вы можете отказаться от подписки ниже..')
+            ->action('Отписаться', url('/unsubscribe/' . $notifiable->id));
     }
 
     /**

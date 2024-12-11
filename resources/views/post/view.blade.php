@@ -14,8 +14,9 @@
                 </div>
                 <h1 class="text-3xl font-bold hover:text-gray-700 pb-4">{{ $post->title }}</h1>
                 <p class="text-sm pb-8">
-                    By <a href="#" class="font-semibold hover:text-gray-800">{{ $post->user->name }}</a>, Published
-                    on {{ $post->getFormatedDate() }} | {{ $post->human_read_time }}
+{{--                    By <a href="#" class="font-semibold hover:text-gray-800">{{ $post->user->name }}</a>, --}}
+                    Опубликовано
+                  {{ $post->getFormatedDate() }} | {{ $post->human_read_time }}
                 </p>
                 <div> {!! $post->body !!}</div>
                 <livewire:upvote-downvote :post="$post"/>
@@ -31,7 +32,7 @@
                        class="block w-full  bg-white shadow hover:shadow-md text-left p-6 max-h-40 h-full">
                         <p class="text-lg text-blue-800 font-bold flex items-center"><i
                                 class="fas fa-arrow-left pr-1"></i>
-                            Previous</p>
+                            Назад</p>
                         <p class="pt-2">{{ \Illuminate\Support\Str::words($prev->title, 10) }}</p>
                     </a>
                 @endif
@@ -40,7 +41,7 @@
                 @if($next)
                     <a href="{{ route('view', $next) }}"
                        class="block w-full  bg-white shadow hover:shadow-md text-right p-6 max-h-40 h-full">
-                        <p class="text-lg text-blue-800 font-bold flex items-center justify-end">Next <i
+                        <p class="text-lg text-blue-800 font-bold flex items-center justify-end">Вперед <i
                                 class="fas fa-arrow-right pl-1"></i></p>
                         <p class="pt-2">{{ \Illuminate\Support\Str::words($next->title, 10) }}</p>
                     </a>

@@ -42,14 +42,14 @@ class ReplyToCommentNotification extends Notification
         $post = Post::find($this->replyComment->post_id);
 
         return (new MailMessage)
-            ->subject('New Reply to Your Comment')
-            ->greeting('Hello ' . $notifiable->name . ',')
-            ->line('Admin has replied to your comment:')
-            ->line('Your Comment: ' . $this->parentComment->comment)
-            ->line('Reply: ' . $this->replyComment->comment)
-            ->line('Post: ' . $post->title)
-            ->action('View Reply', url('/post/' . $post->slug . '#comment-' . $this->replyComment->id))
-            ->line('Thank you for being part of the discussion!');
+            ->subject('Новый ответ на ваш комментарий')
+            ->greeting('Здравствуйте ' . $notifiable->name . ',')
+            ->line('Админ ответил на ваш комментарий:')
+            ->line('Ваш комментарий: ' . $this->parentComment->comment)
+            ->line('Ответ: ' . $this->replyComment->comment)
+            ->line('Статья: ' . $post->title)
+            ->action('Посмотреть комментарий', url('/post/' . $post->slug . '#comment-' . $this->replyComment->id))
+            ->line('Спасибо за участие в обсуждении!');
     }
 
     /**

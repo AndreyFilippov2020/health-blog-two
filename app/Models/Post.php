@@ -45,7 +45,7 @@ class Post extends Model
 
     public function getFormatedDate(): string
     {
-        return $this->published_at->format('d F Y');
+        return $this->published_at->format('d.m.Y');
     }
 
     public function getThumbnail()
@@ -64,8 +64,8 @@ class Post extends Model
                 $words = Str::wordCount(strip_tags($attributes['body']));
                 $minutes = ceil($words / 200);
 
-                return $minutes . ' ' . str('min')->plural($minutes) . ', '
-                    . $words . ' ' . str('word')->plural($words);
+                return $minutes . ' ' . str('мин') . ', '
+                    . $words . ' ' . str('слов');
             }
         );
     }

@@ -1,4 +1,4 @@
-<x-app-layout meta-title="Blog - About us">
+<x-app-layout meta-title="Copper Wellness - About us">
 
     <div class="xl:container mx-auto py-6">
 
