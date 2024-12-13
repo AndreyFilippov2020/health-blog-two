@@ -70,9 +70,8 @@
         @foreach($categories as $category)
             <div>
                 <h2 class="text-lg sm:text-xl font-bold text-theme-color uppercase pb-1 border-b-2 border-theme-color mb-3">
-                    Категория "{{$category->title}}"
-                    <a href="{{route('by-category', $category)}}">
-                        <i class="fas fa-arrow-right"></i>
+                    <a href="{{route('by-category', $category)}}" class="flex gap-3 items-center">
+                        "{{$category->title}}" <i class="fas fa-arrow-right"></i>
                     </a>
                 </h2>
 
