@@ -48,7 +48,7 @@ class UpvoteDownvote extends Component
         $user = request()->user();
 
         if (!$user) {
-            return $this->redirect('login');
+            return $this->redirect('/login');
         }
 
         if (!$user->hasVerifiedEmail()) {
