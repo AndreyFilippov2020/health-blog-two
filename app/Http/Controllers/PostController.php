@@ -116,7 +116,7 @@ class PostController extends Controller
             ->whereHas('posts', function ($query) {
                 $query
                     ->where('active', '=', 1)
-                    ->whereDate('published_at', '<', Carbon::now());
+                    ->whereDate('published_at', '<=', Carbon::now());
             })
             ->select('categories.*')
             ->selectRaw('MAX(posts.published_at) as max_date')

@@ -18,7 +18,7 @@
 {{--            <a href="#" class="font-semibold hover:text-gray-800">{{ $post->user->name }}</a>--}}
             {{ $post->getFormatedDate() }} | {{ $post->human_read_time }}
         </p>
-        <a href="{{ route('view', $post) }}" class="pb-6">{{ $post->shortBody() }}</a>
+        <a href="{{ route('view', $post) }}" class="pb-6">{!!   $post->shortBody() !!}</a>
         <a href="{{ route('view', $post) }}" class="uppercase text-gray-800 hover:text-black">Подробнее <i class="fas fa-arrow-right"></i></a>
     </div>
 </article>

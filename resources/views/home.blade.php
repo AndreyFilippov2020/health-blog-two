@@ -2,7 +2,7 @@
 /** @var $posts  \Illuminate\Pagination\LengthAwarePaginator */
 ?>
 
-<x-app-layout meta-title="Copper Wellness" meta-description="Единственный русскоязычный сайт, посвящен обзору «Медного протокола» от Джейсона Гоммеля. Здесь Вы найдете общую информацию, протоколы и рекомендации.">
+<x-app-layout meta-title="Copper Wellness" meta-description="Единственный русскоязычный сайт, посвященный обзору «Медного протокола» от Джейсона Хоммеля. Здесь Вы найдете общую информацию, протоколы и рекомендации.">
     <div class="container  mx-auto py-6 px-4 md:px-0">
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -25,7 +25,6 @@
                 @foreach($popularPosts as $post)
                     <div class="grid grid-cols-4 gap-2 mb-4">
                         <a href="{{route('view', $post)}}" class="pt-1">
-{{--                            <pre><?php dd($post) ?></pre>--}}
                             <img src="{{$post->getThumbnail()}}" alt="{{$post->title}}"/>
                         </a>
                         <div class="col-span-3">
