@@ -84,9 +84,9 @@ class PostResource extends Resource
                 Tables\Columns\TextColumn::make('published_at')
                     ->dateTime()
                     ->sortable(),
-//                Tables\Columns\TextColumn::make('user.name')
-//                    ->numeric()
-//                    ->sortable(),
+                Tables\Columns\TextColumn::make('views_count')
+                    ->label('Views'),
+
 //                Tables\Columns\TextColumn::make('created_at')
 //                    ->dateTime()
 //                    ->sortable()
